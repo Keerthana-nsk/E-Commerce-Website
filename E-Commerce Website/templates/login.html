@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Page</title>
+</head>
+<style>
+    body {
+    background-image: url("../static/images/background1.jpg"); /* Change this to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+    .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+            font-size: bold;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: 600;
+            color: black;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            background: linear-gradient(to right, rgb(255, 153, 0), lab(54.71% 75.87 67.76));
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-size: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+            width: 100%;
+            font-weight: bold;
+        }
+        button:hover {
+            background: linear-gradient(to right,rgb(255, 153, 0), lab(54.71% 75.87 67.76));
+        }
+</style>
+<body>
+    <!-- templates/login.html -->
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+
+<div class="login-container">
+<h2>Login</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label>Email:</label>
+        <input type="email" name="email" class="form-control" placeholder="Enter your Email Address" required>
+    </div>
+    <div class="mb-3">
+        <label>Password:</label>
+        <input type="password" name="password" class="form-control" placeholder="Enter Secure Password" required>
+    </div>
+    <button type="submit" class="btn btn-dark">Login</button>
+</form>
+</div>
+{% endblock %}
+</body>
+</html>

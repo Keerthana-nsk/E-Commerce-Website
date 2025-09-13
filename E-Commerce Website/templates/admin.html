@@ -1,0 +1,43 @@
+<!-- templates/admin.html -->
+{% extends 'base.html' %}
+{% block title %}Admin Panel{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Admin Panel – Add New Product</h2>
+
+<form method="POST">
+    <div class="mb-3">
+        <label>Product Name:</label>
+        <input type="text" name="name" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Price (₹):</label>
+        <input type="number" name="price" class="form-control" step="0.01" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Description:</label>
+        <textarea name="description" class="form-control" rows="3" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label>Image Filename:</label>
+        <input type="text" name="image" class="form-control" required>
+        <small class="form-text text-muted">Example: <code>shirt1.jpg</code> — must be placed in <code>static/images/</code></small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
+
+<hr class="my-4">
+
+<h5>📂 Reminder:</h5>
+<p>Make sure the image file is placed inside <code>static/images/</code> with the exact name you entered above.</p>
+<ul>
+    <li>No spaces in the filename</li>
+    <li>Use lowercase (e.g., <code>phone1.jpg</code>)</li>
+    <li>Use common formats like <code>.jpg</code> or <code>.png</code></li>
+</ul>
+
+{% endblock %}

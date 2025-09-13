@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - E-Commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="mb-4">All Products</h2>
+
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 mb-4">
+            <!-- For debugging: Show image path -->
+            <p class="text-muted small">{{ url_for('static', filename='images/' + product['image']) }}</p>
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/' + product['image']) }}"
+                     onerror="this.src='https://via.placeholder.com/300x200?text=Image+Not+Found';"
+                     class="card-img-top"
+                     alt="{{ product['name'] }}">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ product['name'] }}</h5>
+                    <p class="card-text">₹{{ product['price'] }}</p>
+                    <a href="/product/{{ product['id'] }}" class="btn btn-primary">View</a>
+                    <a href="/add_to_cart/{{ product['id'] }}" class="btn btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
